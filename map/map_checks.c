@@ -3,32 +3,32 @@
 /*                                                        :::      ::::::::   */
 /*   map_checks.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: marianamestre <marianamestre@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 16:12:13 by marianamest       #+#    #+#             */
-/*   Updated: 2024/05/26 21:05:25 by marvin           ###   ########.fr       */
+/*   Updated: 2024/05/26 22:45:33 by marianamest      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-int map_file_checker(char *str)
+int	map_file_checker(char *str)
 {
-    int len = 0;
+	int	len;
 
-    while (str[len] != '\0')
-        len++;
-
-    if (len < 4)
-    {
-        write(1, "Invalid File\n", 13);
-        exit(1);
-    }
-    if (str[len - 4] == '.' && str[len - 3] == 'b' && str[len - 2] == 'e' && str[len - 1] == 'r')
-        return 1;
-
-    write(1, "Invalid File\n", 13);
-    exit(1);
+	len = 0;
+	while (str[len] != '\0')
+		len++;
+	if (len < 4)
+	{
+		write(1, "Invalid File\n", 13);
+		exit(1);
+	}
+	if (str[len - 4] == '.' && str[len - 3] == 'b' && str[len - 2] == 'e'
+		&& str[len - 1] == 'r')
+		return (1);
+	write(1, "Invalid File\n", 13);
+	exit(1);
 }
 
 int	is_map_rectangular(t_map *content)
@@ -71,9 +71,9 @@ int	map_layout(t_map *content, char **av)
 	close(content->map_fd);
 	map_init(content, i, av);
 	if (is_map_rectangular(content) && valid_walls(content)
-	&& valid_elements(content) && flood_fill(content))
+		&& valid_elements(content) && flood_fill(content))
 		return (1);
 	else
-	 	free_map(content);
+		free_map(content);
 	return (0);
 }

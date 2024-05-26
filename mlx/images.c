@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   images.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: marianamestre <marianamestre@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 13:24:11 by marianamest       #+#    #+#             */
-/*   Updated: 2024/05/26 18:57:11 by marvin           ###   ########.fr       */
+/*   Updated: 2024/05/26 22:44:26 by marianamest      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,10 @@ void	images_to_map1(t_map *content, char element, int x, int y)
 			content->img->img = mlx_xpm_file_to_image(content->mlx->mlx,
 					"./pics/bed.xpm", &content->img->img_width,
 					&content->img->img_height);
+		else
+			content->img->img = mlx_xpm_file_to_image(content->mlx->mlx,
+					"./pics/bow_cat_bed.xpm", &content->img->img_width,
+					&content->img->img_height);
 	}
 	else
 		images_to_map2(content, element);
@@ -42,11 +46,13 @@ void	images_to_map1(t_map *content, char element, int x, int y)
 void	images_to_map2(t_map *content, char element)
 {
 	if (element == '0')
-		content->img->img = mlx_xpm_file_to_image(content->mlx->mlx, "./pics/background.xpm",
-				&content->img->img_width, &content->img->img_height);
+		content->img->img = mlx_xpm_file_to_image(content->mlx->mlx,
+				"./pics/background.xpm", &content->img->img_width,
+				&content->img->img_height);
 	else if (element == '1')
-		content->img->img = mlx_xpm_file_to_image(content->mlx->mlx, "./pics/wall.xpm",
-				&content->img->img_width, &content->img->img_height);
+		content->img->img = mlx_xpm_file_to_image(content->mlx->mlx,
+				"./pics/wall.xpm", &content->img->img_width,
+				&content->img->img_height);
 	else if (element == 'P')
 		content->img->img = mlx_xpm_file_to_image(content->mlx->mlx,
 				"./pics/cat.xpm", &content->img->img_width,

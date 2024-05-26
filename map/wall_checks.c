@@ -6,7 +6,7 @@
 /*   By: marianamestre <marianamestre@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 20:59:18 by marianamest       #+#    #+#             */
-/*   Updated: 2024/05/22 10:55:36 by marianamest      ###   ########.fr       */
+/*   Updated: 2024/05/26 22:45:19 by marianamest      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	valid_top_wall(t_map *content)
 		i++;
 	}
 	if (j == len)
-	{	
+	{
 		return (1);
 	}
 	return (0);
@@ -46,13 +46,13 @@ int	valid_middle_walls(t_map *content)
 	j = 1;
 	len = slen(content->map[j]);
 	while (j != content->rows_in_map - 1)
-	{	
-		if(map[j][0] == '1' && map[j][len - 1] == '1')
+	{
+		if (map[j][0] == '1' && map[j][len - 1] == '1')
 			j++;
-		else	
-			return(0);
+		else
+			return (0);
 	}
-	return(1);
+	return (1);
 }
 
 int	valid_bottom_wall(t_map *content)
@@ -60,18 +60,17 @@ int	valid_bottom_wall(t_map *content)
 	char	**map;
 	int		rows;
 	int		i;
-	
+
 	map = content->map;
 	rows = content->rows_in_map;
 	i = 0;
 	while (i != content->columns_in_map)
-	{	
-		
+	{
 		if (map[rows - 1][i] != '1')
-			return(0);
+			return (0);
 		i++;
 	}
-	return(1);
+	return (1);
 }
 
 int	valid_walls(t_map *content)
@@ -84,8 +83,6 @@ int	valid_walls(t_map *content)
 	b = valid_middle_walls(content);
 	c = valid_bottom_wall(content);
 	if (a == 1 && b == 1 && c == 1)
-	{
 		return (1);
-	}
 	return (0);
 }

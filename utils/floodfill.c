@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   floodfill.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: marianamestre <marianamestre@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 21:32:23 by marianamest       #+#    #+#             */
-/*   Updated: 2024/05/26 17:49:59 by marvin           ###   ########.fr       */
+/*   Updated: 2024/05/26 22:40:18 by marianamest      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,15 +42,16 @@ void	flood_fill_recursive(t_map *content, int x, int y,
 
 int	flood_fill(t_map *content)
 {
-	static int		visited[MAX_ROWS][MAX_COLUMNS] = {0};
-	int				start_x;
-	int				start_y;
+	static int	visited[MAX_ROWS][MAX_COLUMNS] = {0};
+	int			start_x;
+	int			start_y;
 
 	start_x = content->start_pos[1];
 	start_y = content->start_pos[0];
 	content->found_all_collectibles = 0;
 	flood_fill_recursive(content, start_x, start_y, visited);
-	if (content->found_all_collectibles == content->collectibles && content->found_exit == 1)
+	if (content->found_all_collectibles == content->collectibles
+		&& content->found_exit == 1)
 		return (1);
 	else
 		return (0);
@@ -66,10 +67,10 @@ void	where_is_player(t_map *content)
 	x = 1;
 	y = 1;
 	while (map[y])
-	{	
+	{
 		x = 1;
 		while (map[y][x])
-		{	
+		{
 			if (map[y][x] == 'P')
 			{
 				content->start_pos[0] = y;
@@ -107,5 +108,3 @@ void	where_is_exit(t_map *content)
 		y++;
 	}
 }
-
-

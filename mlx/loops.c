@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   loops.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: marianamestre <marianamestre@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 14:16:42 by marianamest       #+#    #+#             */
-/*   Updated: 2024/05/26 19:00:24 by marvin           ###   ########.fr       */
+/*   Updated: 2024/05/26 22:46:32 by marianamest      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,7 @@ void	scissors_loop(t_map *content)
 	img_fr[1] = "pics/open_sci.xpm";
 	frame_index = i / (content->scissors + 1) % num_frames;
 	content->img->img = mlx_xpm_file_to_image(content->mlx->mlx,
-			img_fr[frame_index],
-			&content->img->img_width,
+			img_fr[frame_index], &content->img->img_width,
 			&content->img->img_height);
 	i++;
 }
@@ -37,7 +36,6 @@ int	find_element(t_map *content)
 	int	j;
 
 	i = 0;
-	//usleep(50000);
 	while (content->map[i])
 	{
 		j = 0;

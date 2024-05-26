@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: marianamestre <marianamestre@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 11:43:24 by marianamest       #+#    #+#             */
-/*   Updated: 2024/05/26 20:00:16 by marvin           ###   ########.fr       */
+/*   Updated: 2024/05/26 22:39:07 by marianamest      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,10 @@ int	main(int ac, char **av)
 		if (!map_layout(&content, av))
 		{
 			close(content.map_fd);
-		//	write(1, "Map invalid\n", 12);
-		//	exit(1);
+			write(1, "Map invalid\n", 12);
+			exit(1);
 		}
-	//	write(1,"Map is valid, Starting Game!\n",29);
-		//mlx_start(&content);
+		write(1, "Map is valid, Starting Game!\n", 29);
+		mlx_start(&content);
 	}
 }

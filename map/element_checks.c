@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   element_checks.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: marianamestre <marianamestre@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 21:18:10 by marianamest       #+#    #+#             */
-/*   Updated: 2024/05/21 16:23:36 by marvin           ###   ########.fr       */
+/*   Updated: 2024/05/26 22:45:54 by marianamest      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ int	valid_exit(t_map *content)
 	j = 0;
 	map = content->map;
 	while (map[j])
-	{	i = 0;
+	{
+		i = 0;
 		while (map[j][i])
 		{
 			if (map[j][i] == 'E')
@@ -129,8 +130,6 @@ int	valid_elements(t_map *content)
 	where_is_player(content);
 	where_is_exit(content);
 	if (a == 1 && b >= 1 && c >= 1 && d == 1)
-	{
 		return (1);
-	}
 	return (0);
 }

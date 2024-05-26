@@ -6,7 +6,7 @@
 /*   By: marianamestre <marianamestre@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 20:00:50 by marianamest       #+#    #+#             */
-/*   Updated: 2024/05/26 16:35:34 by marianamest      ###   ########.fr       */
+/*   Updated: 2024/05/26 22:39:15 by marianamest      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ int	slen(const char *s)
 
 void	line_break_eraser(t_map *content)
 {
-	int		i;
-	int		j;
+	int	i;
+	int	j;
 
 	i = 0;
 	while (content->map[i] != NULL)

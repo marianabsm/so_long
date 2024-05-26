@@ -6,7 +6,7 @@
 /*   By: marianamestre <marianamestre@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 14:06:27 by marianamest       #+#    #+#             */
-/*   Updated: 2024/05/26 14:07:44 by marianamest      ###   ########.fr       */
+/*   Updated: 2024/05/26 22:39:32 by marianamest      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,9 @@ int	get_len(int nbr)
 	return (len);
 }
 
-char *ft_itoa(int nbr)
+char	*ft_itoa(int nbr)
 {
- 	char	*str;
+	char	*str;
 	int		len;
 
 	len = get_len(nbr);
@@ -56,5 +56,5 @@ char *ft_itoa(int nbr)
 		str[len] = ft_neg(nbr % 10) + '0';
 		nbr = nbr / 10;
 	}
-	return (str);   
+	return (str);
 }

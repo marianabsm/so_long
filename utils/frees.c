@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   frees.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: marianamestre <marianamestre@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 22:21:27 by marianamest       #+#    #+#             */
-/*   Updated: 2024/05/26 20:45:48 by marvin           ###   ########.fr       */
+/*   Updated: 2024/05/26 22:40:02 by marianamest      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,15 @@
 void	free_map(t_map *content)
 {
 	int	i;
-	
+
 	if (content->map == NULL)
-		return;
+		return ;
 	i = -1;
 	while (content->map[++i])
 		free(content->map[i]);
 	free(content->map);
 }
+
 void	free_mlx(t_map *content)
 {
 	free(content->mlx->mlx);
