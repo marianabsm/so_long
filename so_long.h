@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marianamestre <marianamestre@student.42    +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 11:36:09 by marianamest       #+#    #+#             */
-/*   Updated: 2024/05/26 16:14:07 by marianamest      ###   ########.fr       */
+/*   Updated: 2024/05/26 17:18:45 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,14 @@
 # define MAX_ROWS 50
 # define MAX_COLUMNS 50
 
-# define UP 126
-# define DOWN 125
-# define RIGHT 124
-# define LEFT 123
-# define ESC 53
+# define UP 65362
+# define DOWN 65364
+# define RIGHT 65363
+# define LEFT 65361
+# define ESC 65307
 
 # include "GNL/get_next_line.h"
-# include "minilibx_macos/mlx.h"
+# include "minilibx-linux/mlx.h"
 # include <stdio.h>
 # include <stdlib.h>
 # include <string.h>

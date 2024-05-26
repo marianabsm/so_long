@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   inits.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marianamestre <marianamestre@student.42    +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 20:11:09 by marianamest       #+#    #+#             */
-/*   Updated: 2024/05/26 16:36:48 by marianamest      ###   ########.fr       */
+/*   Updated: 2024/05/26 20:41:32 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,15 +27,14 @@ void data_init(t_map *content)
 }
 
 void	map_init(t_map *content, int i, char **av)
-{	
+{
 	content->map_fd = open(av[1], O_RDONLY);
 	content->map = malloc(sizeof(char *) * content->rows_in_map);
 	content->map[i] = get_next_line(content->map_fd);
-	while (content->map[i] != NULL)
-	{	
-		//printf("%s\n",content->map[i]);
-		i++;
-		content->map[i] = get_next_line(content->map_fd);
-	}
-	line_break_eraser(content);
+	// while (content->map[i] != NULL)
+	// {	
+	// 	i++;
+	// 	content->map[i] = get_next_line(content->map_fd);
+	// }
+	// line_break_eraser(content);
 }

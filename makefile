@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: marianamestre <marianamestre@student.42    +#+  +:+       +#+         #
+#    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/03 11:26:57 by marianamest       #+#    #+#              #
-#    Updated: 2024/05/26 16:52:35 by marianamest      ###   ########.fr        #
+#    Updated: 2024/05/26 19:01:09 by marvin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,16 +22,15 @@ mlx/mlx_start.c mlx/images.c mlx/actions.c mlx/loops.c \
 # !!!! LEMBRA DE MUDAR O MLX DE MAC-OS PARA LINUX ANTES DA ENTREGA !!!
 # FORA E DENTRO DO MAKEFILE!!!!!
 OBJS = $(SRCS:.c=.o)
-
+MLX = minilibx-linux/libmlx.a
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g -I$(MLX_DIR) -I/opt/X11/include -fsanitize=address
-LDFLAGS = -L$(MLX_DIR) -lmlx -L/opt/X11/lib -lX11 -lXext -lm -framework OpenGL -framework AppKit -framework CoreFoundation
-MLX_DIR = ./minilibx_macos
+CFLAGS = -Wall -Wextra -Werror -g #-fsanitize=address
+LDFLAGS = -lm -lX11 -lXext
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) $(LDFLAGS) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) -o   $(NAME) $(MLX) $(LDFLAGS) -g
 
 %.o: %.c $(HEADER)
 	$(CC) $(CFLAGS) -c $< -o $@

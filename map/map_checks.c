@@ -3,34 +3,32 @@
 /*                                                        :::      ::::::::   */
 /*   map_checks.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marianamestre <marianamestre@student.42    +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 16:12:13 by marianamest       #+#    #+#             */
-/*   Updated: 2024/05/26 16:53:25 by marianamest      ###   ########.fr       */
+/*   Updated: 2024/05/26 21:05:25 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-int	map_file_checker(char *str)
+int map_file_checker(char *str)
 {
-	int	i;
-	int len;
+    int len = 0;
 
-	i = 0;
-	len = slen(str);
-	if(len > 4)
-	{
-		while (str[i])
-		{
-			if (str[i] == '.' && str[i + 1] == 'b' && str[i + 2] == 'e' && str[i
-					+ 3] == 'r' && str[i + 4] == '\0')
-				return (1);
-			i++;
-		}
-	}
-	write(1, "Invalid File\n", 13);
-	exit(1);
+    while (str[len] != '\0')
+        len++;
+
+    if (len < 4)
+    {
+        write(1, "Invalid File\n", 13);
+        exit(1);
+    }
+    if (str[len - 4] == '.' && str[len - 3] == 'b' && str[len - 2] == 'e' && str[len - 1] == 'r')
+        return 1;
+
+    write(1, "Invalid File\n", 13);
+    exit(1);
 }
 
 int	is_map_rectangular(t_map *content)
@@ -67,12 +65,15 @@ int	map_layout(t_map *content, char **av)
 		free(tmp);
 		tmp = get_next_line(content->map_fd);
 		content->rows_in_map++;
+		i++;
 	}
+	free(tmp);
 	close(content->map_fd);
 	map_init(content, i, av);
 	if (is_map_rectangular(content) && valid_walls(content)
-		&& valid_elements(content) && flood_fill(content))
+	&& valid_elements(content) && flood_fill(content))
 		return (1);
-	free_map(content);
+	else
+	 	free_map(content);
 	return (0);
 }

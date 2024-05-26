@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gcapa-pe <gcapa-pe@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 12:01:12 by gcapa-pe          #+#    #+#             */
-/*   Updated: 2023/06/13 16:29:04 by gcapa-pe         ###   ########.fr       */
+/*   Updated: 2024/05/26 20:27:04 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*get_dick(char *content)
+char	*bleh(char *content)
 {
 	int		i;
 	char	*line;
@@ -71,7 +71,7 @@ char	*get_next_line(int fd)
 		return (NULL);
 	}
 	content = r_file(fd, content);
-	line = get_dick(content);
+	line = bleh(content);
 	if (!line)
 	{
 		content = NULL;
@@ -83,25 +83,49 @@ char	*get_next_line(int fd)
 	return (line);
 }
 
-// int	main(void)
-// {
-// 	int fd = 0;
-// 	char *line;
-// 	fd = open("tex.txt", O_RDONLY);
-// 	while ((line = get_next_line(fd)))
-// 	{
-// 		printf("Gnl:%s\n", line);
-// 		free(line);
-// 	}
-// 	printf("%s\n", get_next_line(fd));
-// 	close(fd);
-// 	fd = open("tex.txt", O_RDONLY);
-// 	while ((line = get_next_line(fd)))
-// 	{
-// 		printf("Gnl:%s\n", line);
-// 		free(line);
-// 	}
-// 	printf("%s\n", get_next_line(fd));
-// 	close(fd);
-// 	return (0);
-// }
+/*int main(void)
+{
+
+    int fd;
+    char *line;
+
+    fd = open("tex.txt", O_RDONLY);
+    if (fd == -1)
+    {
+        perror("Error opening file");
+        return 1;
+    }
+    while ((line = get_next_line(fd)))
+    {
+        printf("Gnl:%s\n", line);
+        free(line);
+    }
+    line = get_next_line(fd);
+    if (line)
+    {
+        printf("%s\n", line);
+        free(line);  // Free the last line
+    }
+    close(fd);
+
+    fd = open("tex.txt", O_RDONLY);
+    if (fd == -1)
+    {
+        perror("Error opening file");
+        return 1;
+    }
+    while ((line = get_next_line(fd)))
+    {
+        printf("Gnl:%s\n", line);
+        free(line);
+    }
+    line = get_next_line(fd);
+    if (line)
+    {
+        printf("%s\n", line);
+        free(line);  // Free the last line
+    }
+    close(fd);
+
+    return (0);
+}*/

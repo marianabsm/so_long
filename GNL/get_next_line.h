@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gcapa-pe <gcapa-pe@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 12:01:45 by gcapa-pe          #+#    #+#             */
-/*   Updated: 2023/06/12 15:27:31 by gcapa-pe         ###   ########.fr       */
+/*   Updated: 2024/05/26 20:14:23 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ char	*get_strchr(char *s, int c);
 char	*get_strjoin(char *s1, char *s2);
 int		get_strlen(char *s);
 char	*get_substr(char *s, int start, int len, int do_free);
-char	*get_dick(char *content);
+char	*bleh(char *content);
 char	*ft_sub_divide(char *s, char *sub_s, int start, int len);
 
 #endif

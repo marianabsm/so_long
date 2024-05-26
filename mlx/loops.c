@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   loops.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marianamestre <marianamestre@student.42    +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 14:16:42 by marianamest       #+#    #+#             */
-/*   Updated: 2024/05/26 15:08:33 by marianamest      ###   ########.fr       */
+/*   Updated: 2024/05/26 19:00:24 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	find_element(t_map *content)
 	int	j;
 
 	i = 0;
-	usleep(50000);
+	//usleep(50000);
 	while (content->map[i])
 	{
 		j = 0;
