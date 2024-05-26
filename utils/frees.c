@@ -6,7 +6,7 @@
 /*   By: marianamestre <marianamestre@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 22:21:27 by marianamest       #+#    #+#             */
-/*   Updated: 2024/05/21 00:40:06 by marianamest      ###   ########.fr       */
+/*   Updated: 2024/05/26 16:43:49 by marianamest      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,4 +20,10 @@ void	free_map(t_map *content)
 	while (content->map[++i])
 		free(content->map[i]);
 	free(content->map);
+}
+void	free_mlx(t_map *content)
+{
+	free(content->mlx->mlx);
+	free(content->mlx);
+	free(content->img);
 }

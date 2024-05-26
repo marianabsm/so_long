@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: marianamestre <marianamestre@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 11:36:09 by marianamest       #+#    #+#             */
-/*   Updated: 2024/05/21 15:18:14 by marvin           ###   ########.fr       */
+/*   Updated: 2024/05/26 16:14:07 by marianamest      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,14 @@
 # define MAX_ROWS 50
 # define MAX_COLUMNS 50
 
+# define UP 126
+# define DOWN 125
+# define RIGHT 124
+# define LEFT 123
+# define ESC 53
+
 # include "GNL/get_next_line.h"
+# include "minilibx_macos/mlx.h"
 # include <stdio.h>
 # include <stdlib.h>
 # include <string.h>
@@ -25,7 +32,7 @@
 typedef struct s_mlx
 {
 	void	*mlx;
-	void	*win;
+	void	*window;
 }			t_mlx;
 
 typedef struct s_img
@@ -38,6 +45,8 @@ typedef struct s_img
 typedef struct s_map
 {
 	char	**map;
+	char	*str_of_actions;
+	int		num_of_actions;
 	int		start_pos[2];
 	int		exit_pos[2];
 	int		found_exit;
@@ -45,10 +54,14 @@ typedef struct s_map
 	int		rows_in_map;
 	int		columns_in_map;
 	int		map_fd;
+	int		scissors;
 	int		valid_exit;
 	int		collectibles;
 	int		player_position;
 	int		empty_space;
+	int		running;
+	t_img	*img;
+	t_mlx	*mlx;
 }			t_map;
 
 /* map stuff */
@@ -71,6 +84,7 @@ int			valid_elements(t_map *content);
 
 /* frees */
 void		free_map(t_map *content);
+void		free_mlx(t_map *content);
 
 /* floodfill */
 int			is_valid_cell(int x, int y, int rows, int cols);
@@ -80,22 +94,30 @@ int			flood_fill(t_map *content);
 void		where_is_player(t_map *content);
 void		where_is_exit(t_map *content);
 
+/* itoa */
+char		*ft_itoa(int nbr);
+int			get_len(int nbr);
+int			ft_neg(int nbr);
+
 /* utils */
 int			slen(const char *s);
 void		line_break_eraser(t_map *content);
 int			lines_read_counter(t_map *content);
 
+/* mlx */
+void		mlx_start(t_map *content);
+void		image_to_window(t_map *content, int x, int y);
+void		images_to_map1(t_map *content, char element, int x, int y);
+void		images_to_map2(t_map *content, char element);
+void		scissors_loop(t_map *content);
+int			find_element(t_map *content);
+int			actions(int key_code, t_map *content);
+int			actions_2(t_map *content, int tmp[]);
+int			close_window(t_map *content);
+void		keys(int key_code, t_map *content);
+
 /* main */
 int			main(int ac, char **av);
-
-/* get next line */
-int			ft_strlen(char *x);
-int			ft_clear(char *str);
-char		*ft_strjoin(char *s1, char *s2);
-char		*get_next_line(int fd);
-
-/* TESTERS*/
-void printCharArray(char **map, int rows);
 
 /*-fsanitize=address*/
 #endif

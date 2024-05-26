@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   floodfill.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: marianamestre <marianamestre@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 21:32:23 by marianamest       #+#    #+#             */
-/*   Updated: 2024/05/21 16:22:57 by marvin           ###   ########.fr       */
+/*   Updated: 2024/05/22 20:10:02 by marianamest      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,16 +55,6 @@ int	flood_fill(t_map *content)
 	else
 		return (0);
 }
-
-void printCharArray(char **map, int rows) 
-{
-    for (int i = 0; i < rows; ++i) 
-	{
-        printf("%s ", map[i]);
-        printf("\n");
-    }
-}
-
 
 void	where_is_player(t_map *content)
 {

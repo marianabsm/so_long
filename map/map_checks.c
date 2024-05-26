@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_checks.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: marianamestre <marianamestre@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 16:12:13 by marianamest       #+#    #+#             */
-/*   Updated: 2024/05/21 16:23:08 by marvin           ###   ########.fr       */
+/*   Updated: 2024/05/26 16:53:25 by marianamest      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	map_file_checker(char *str)
 			i++;
 		}
 	}
-	perror("Invalid File\n");
+	write(1, "Invalid File\n", 13);
 	exit(1);
 }
 

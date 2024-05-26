@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   wall_checks.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: marianamestre <marianamestre@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 20:59:18 by marianamest       #+#    #+#             */
-/*   Updated: 2024/05/21 16:23:28 by marvin           ###   ########.fr       */
+/*   Updated: 2024/05/22 10:55:36 by marianamest      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	valid_top_wall(t_map *content)
 	map = content->map;
 	i = 0;
 	j = 0;
-	len = strlen(content->map[0]);
+	len = slen(content->map[0]);
 	while (i < len)
 	{
 		if (map[0][i] == '1')
