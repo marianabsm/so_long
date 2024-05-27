@@ -6,7 +6,7 @@
 /*   By: marianamestre <marianamestre@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 13:24:11 by marianamest       #+#    #+#             */
-/*   Updated: 2024/05/26 22:44:26 by marianamest      ###   ########.fr       */
+/*   Updated: 2024/05/27 01:34:45 by marianamest      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,9 @@ void	images_to_map1(t_map *content, char element, int x, int y)
 {
 	mlx_destroy_image(content->mlx->mlx, content->img->img);
 	if (element == 'E')
-	{
-		if (content->collectibles != 0)
-			content->img->img = mlx_xpm_file_to_image(content->mlx->mlx,
-					"./pics/bed.xpm", &content->img->img_width,
-					&content->img->img_height);
-		else
-			content->img->img = mlx_xpm_file_to_image(content->mlx->mlx,
-					"./pics/bow_cat_bed.xpm", &content->img->img_width,
-					&content->img->img_height);
-	}
+		content->img->img = mlx_xpm_file_to_image(content->mlx->mlx,
+				"./pics/bed.xpm", &content->img->img_width,
+				&content->img->img_height);
 	else
 		images_to_map2(content, element);
 	content->str_of_actions = ft_itoa(content->num_of_actions);
@@ -54,9 +47,16 @@ void	images_to_map2(t_map *content, char element)
 				"./pics/wall.xpm", &content->img->img_width,
 				&content->img->img_height);
 	else if (element == 'P')
-		content->img->img = mlx_xpm_file_to_image(content->mlx->mlx,
-				"./pics/cat.xpm", &content->img->img_width,
-				&content->img->img_height);
+	{
+		if (content->collectibles != 0)
+			content->img->img = mlx_xpm_file_to_image(content->mlx->mlx,
+					"./pics/cat.xpm", &content->img->img_width,
+					&content->img->img_height);
+		else
+			content->img->img = mlx_xpm_file_to_image(content->mlx->mlx,
+					"./pics/bow_cat.xpm", &content->img->img_width,
+					&content->img->img_height);
+	}
 	else if (element == 'X')
 		scissors_loop(content);
 	else if (element == 'C')
