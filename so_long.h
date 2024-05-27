@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: marianamestre <marianamestre@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 11:36:09 by marianamest       #+#    #+#             */
-/*   Updated: 2024/05/26 17:18:45 by marvin           ###   ########.fr       */
+/*   Updated: 2024/05/27 01:13:35 by marianamest      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,7 @@ int			lines_read_counter(t_map *content);
 
 /* mlx */
 void		mlx_start(t_map *content);
+void		mlx_start2(t_map *content);
 void		image_to_window(t_map *content, int x, int y);
 void		images_to_map1(t_map *content, char element, int x, int y);
 void		images_to_map2(t_map *content, char element);

@@ -6,7 +6,7 @@
 /*   By: marianamestre <marianamestre@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 16:12:13 by marianamest       #+#    #+#             */
-/*   Updated: 2024/05/26 22:45:33 by marianamest      ###   ########.fr       */
+/*   Updated: 2024/05/27 01:09:30 by marianamest      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@ int	map_file_checker(char *str)
 		len++;
 	if (len < 4)
 	{
-		write(1, "Invalid File\n", 13);
+		write(1, "Error\nInvalid File\n", 19);
 		exit(1);
 	}
 	if (str[len - 4] == '.' && str[len - 3] == 'b' && str[len - 2] == 'e'
 		&& str[len - 1] == 'r')
 		return (1);
-	write(1, "Invalid File\n", 13);
+	write(1, "Error\nInvalid File\n", 19);
 	exit(1);
 }
 

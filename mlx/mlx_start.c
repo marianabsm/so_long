@@ -6,7 +6,7 @@
 /*   By: marianamestre <marianamestre@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 11:18:38 by marianamest       #+#    #+#             */
-/*   Updated: 2024/05/26 22:43:54 by marianamest      ###   ########.fr       */
+/*   Updated: 2024/05/27 01:14:18 by marianamest      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,11 @@ void	mlx_start(t_map *content)
 		free(content->mlx);
 		return ;
 	}
+	mlx_start2(content);
+}
+
+void	mlx_start2(t_map *content)
+{
 	mlx_key_hook(content->mlx->window, actions, content);
 	mlx_hook(content->mlx->window, 17, 0L, close_window, content);
 	content->img = malloc(sizeof(t_img));
