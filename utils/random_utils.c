@@ -6,7 +6,7 @@
 /*   By: marianamestre <marianamestre@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 20:00:50 by marianamest       #+#    #+#             */
-/*   Updated: 2024/05/26 22:39:15 by marianamest      ###   ########.fr       */
+/*   Updated: 2024/05/28 14:08:32 by marianamest      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,24 @@ int	lines_read_counter(t_map *content)
 		free(line);
 	}
 	return (i);
+}
+
+int	valid_elements(t_map *content)
+{
+	int	a;
+	int	b;
+	int	c;
+	int	d;
+	int	e;
+
+	a = valid_exit(content);
+	b = collectible(content);
+	c = empty_space(content);
+	d = player_position(content);
+	where_is_player(content);
+	where_is_exit(content);
+	e = valid_map_elements(content);
+	if (a == 1 && b >= 1 && c >= 1 && d == 1 && e == 1)
+		return (1);
+	return (0);
 }

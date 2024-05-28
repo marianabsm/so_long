@@ -6,7 +6,7 @@
 /*   By: marianamestre <marianamestre@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 21:18:10 by marianamest       #+#    #+#             */
-/*   Updated: 2024/05/26 22:45:54 by marianamest      ###   ########.fr       */
+/*   Updated: 2024/05/28 14:08:20 by marianamest      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,20 +116,28 @@ int	player_position(t_map *content)
 	return (content->player_position);
 }
 
-int	valid_elements(t_map *content)
+int	valid_map_elements(t_map *content)
 {
-	int	a;
-	int	b;
-	int	c;
-	int	d;
+	int		i;
+	int		j;
+	char	current;
 
-	a = valid_exit(content);
-	b = collectible(content);
-	c = empty_space(content);
-	d = player_position(content);
-	where_is_player(content);
-	where_is_exit(content);
-	if (a == 1 && b >= 1 && c >= 1 && d == 1)
-		return (1);
-	return (0);
+	j = 0;
+	i = 0;
+	while (j < content->rows_in_map)
+	{
+		i = 0;
+		while (i < content->columns_in_map)
+		{
+			current = content->map[j][i];
+			if (current != 'P' && current != 'E' && current != 'C'
+				&& current != '0' && current != '1' && current != 'X')
+			{
+				return (0);
+			}
+			i++;
+		}
+		j++;
+	}
+	return (1);
 }
